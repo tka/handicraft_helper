@@ -26,20 +26,21 @@ module Handicraft
 
     def render_page_title
       title = @page_title ? "#{SITE_NAME} | #{@page_title}" : SITE_NAME rescue "SITE_NAME"
-      content_tag("title", title)
+      content_tag("title", title, nil, false)
     end
 
     def render_body_tag
       class_attribute = ["#{controller_name}-controller","#{action_name}-action"].join(" ")
       id_attribute = (@body_id)? " id=\"#{@body_id}-page\"" : ""
 
-      %Q|<!--[if lt IE 7 ]>
+      raw(%Q|<!--[if lt IE 7 ]>
 <body class="#{class_attribute} ie6"><![endif]-->
 <!--[if gte IE 7 ]>
 <body class="#{class_attribute} ie"><![endif]-->
 <!--[if !IE]>-->
 <body#{id_attribute} class="#{class_attribute}">
-<!--<![endif]-->|
+<!--<![endif]-->|)
+
     end
 
     def s(html)
@@ -146,7 +147,7 @@ module Handicraft
 
       def to_s
         value = @children.each { |c| c.to_s }.join
-        content_tag(@name, value.to_s, @attributes)
+        content_tag(@name, value.to_s, @attributes, false)
       end
 
       def <<(tag_node)
