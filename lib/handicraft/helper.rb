@@ -1,3 +1,4 @@
+# coding: utf-8
 module Handicraft
   module Helper
     def yield_or_default(message, default_message = "")
