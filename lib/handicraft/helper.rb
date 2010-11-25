@@ -25,6 +25,16 @@ module Handicraft
       return p.to_s
     end
 
+    def render_breadcrumb(args = {})
+      return "" if @breadcrumbs.size == 0
+      out = "<ul class=\"breadcrumbs #{args[:class]}\">"
+      @breadcrumbs.each do |c|
+        out += ("<li class=\"#{@breadcrumbs.index(c) == 0 ? 'first': ''}\">" + c + "</li>")
+      end
+      out += "</ul>"
+      return out
+    end
+
     def render_page_title
       title = @page_title ? "#{SITE_NAME} | #{@page_title}" : SITE_NAME rescue "SITE_NAME"
       content_tag("title", title, nil, false)
