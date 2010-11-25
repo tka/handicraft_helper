@@ -156,6 +156,14 @@ module Handicraft
         @children = []
       end
 
+      def addClass(x)
+        if @attributes[:class].blank?
+          @attributes[:class] = x.to_s
+        else
+          @attributes[:class] = @attributes[:class] + " #{x}"
+        end
+      end
+
       def to_s
         value = @children.each { |c| c.to_s }.join
         content_tag(@name, value.to_s, @attributes, false)

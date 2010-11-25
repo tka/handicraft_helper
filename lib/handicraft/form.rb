@@ -14,6 +14,8 @@ module Handicraft
 
         li = ( error_message_on(field).blank? )? Handicraft::Helper::TagNode.new("li") : Handicraft::Helper::TagNode.new("li", :class => 'error' )
         li << label(field, options.delete(:label) , :class => "desc" ) if options[:label]
+
+        li.addClass('required') if options[:required]
         
         div = Handicraft::Helper::TagNode.new("div", :class=> "col")        
         
