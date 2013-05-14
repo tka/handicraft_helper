@@ -135,7 +135,7 @@ module Handicraft
         link = item_content.match(/href=(["'])(.*?)(\1)/)[2] rescue nil
 
         if ( link && current_page?(link) ) || ( @current && @current.include?(link) )
-          item_class << "current"
+          item_class << "active"
         end
 
         item_class = (item_class.empty?)? nil : item_class.join(" ")
