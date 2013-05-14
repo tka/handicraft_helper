@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = "handicraft_helper"
-  s.version     = "1.0"
-  s.date        = "2010-07-07"
+  s.version     = "2.0"
+  s.date        = "2012-05-14"
   s.authors     = ["Handlino Inc."]
   s.email       = ["dev@handlino.com"]
   s.homepage    = "http://handlino.com"
